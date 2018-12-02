@@ -17,17 +17,15 @@ class Dropdown extends Component {
   }
 
   onSubmit() {
-    console.log("button clicked");
     console.log(this.state.product);
     console.log(this.state.category);
-    console.log(this.state.subCat);
   }
 
   render() {
     const { product, category, subCat } = this.state;
 
     //Category Dropdown options
-    const standardProduct = [
+    const standard = [
       { label: "* Select Category", value: 0 },
       { label: "Event Details", value: "eventDetails" },
       { label: "Websie & Registration", value: "websiteRegistration" },
@@ -36,7 +34,7 @@ class Dropdown extends Component {
       { label: "Reporting", value: "reporting" },
     ];
 
-    const expressProduct = [
+    const express = [
       { label: "* Select Category", value: 0 },
       { label: "Express Product 1", value: "Express Product 1" },
       { label: "Express Product 2", value: "Express Product 2" },
@@ -46,7 +44,7 @@ class Dropdown extends Component {
       { label: "Express Product 6", value: "Express Product 6" },
     ];
 
-    const flexProduct = [
+    const flex = [
       { label: "* Select Category", value: 0 },
       { label: "Flex Product 1", value: "Flex Product 1" },
       { label: "Flex Product 2", value: "Flex Product 2" },
@@ -55,19 +53,20 @@ class Dropdown extends Component {
       { label: "Flex Product 5", value: "Flex Product 5" },
     ];
 
-    const standardOptions = standardProduct.map(option => (
+    //Populate option tags in select tag
+    const standardOptions = standard.map(option => (
       <option key={option.label} value={option.value}>
         {option.label}
       </option>
     ));
 
-    const expressOptions = expressProduct.map(option => (
+    const expressOptions = express.map(option => (
       <option key={option.label} value={option.value}>
         {option.label}
       </option>
     ));
 
-    const flexOptions = flexProduct.map(option => (
+    const flexOptions = flex.map(option => (
       <option key={option.label} value={option.value}>
         {option.label}
       </option>
@@ -101,7 +100,7 @@ class Dropdown extends Component {
       { label: "Survey", value: "survey" },
     ];
 
-    const proomotionCommunication = [
+    const promotionCommunication = [
       { label: "* Select Sub Category", value: 0 },
       { label: "Web", value: "web" },
       { label: "Email", value: "email" },
@@ -134,16 +133,18 @@ class Dropdown extends Component {
       </option>
     ));
 
-    const promotionCommunicationOptions = proomotionCommunication.map(option => (
+    const promotionCommunicationOptions = promotionCommunication.map(option => (
       <option key={option.label} value={option.value}>
         {option.label}
       </option>
     ));
+
     const inviteeManagementOptions = inviteeManagement.map(option => (
       <option key={option.label} value={option.value}>
         {option.label}
       </option>
     ));
+
     const reportingOptions = reporting.map(option => (
       <option key={option.label} value={option.value}>
         {option.label}
