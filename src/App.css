@@ -1,4 +1,10 @@
-.product_dropdwn {
+/* .product_dropdwn {
   display: flex;
   justify-content: space-between;
+} */
+
+.description {
+  width: auto;
+  height: 100px;
+  border: 1px solid black;
 }

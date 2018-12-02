@@ -19,22 +19,24 @@ class Dropdown extends Component {
   onSubmit() {
     console.log("button clicked");
     console.log(this.state.product);
+    console.log(this.state.category);
   }
 
   render() {
-    const { product } = this.state;
+    const { product, category, subCat } = this.state;
 
+    //Category Dropdown options
     const standardProduct = [
-      { label: "* Select Product", value: 0 },
-      { label: "Standard Product 1", value: "Product 1" },
-      { label: "Standard Product 2", value: "Product 2" },
-      { label: "Standard Product 3", value: "Product 3" },
-      { label: "Standard Product 4", value: "Product 4" },
-      { label: "Standard Product 5", value: "Product 5" },
+      { label: "* Select Category", value: 0 },
+      { label: "Event Details", value: "eventDetails" },
+      { label: "Websie & Registration", value: "websiteRegistration" },
+      { label: "Promotion & Communcation", value: "promotionCommunication" },
+      { label: "Invitee Management", value: "InviteeManagement" },
+      { label: "Reporting", value: "Reporting" },
     ];
 
     const expressProduct = [
-      { label: "* Select Product", value: 0 },
+      { label: "* Select Category", value: 0 },
       { label: "Express Product 1", value: "Express Product 1" },
       { label: "Express Product 2", value: "Express Product 2" },
       { label: "Express Product 3", value: "Express Product 3" },
@@ -44,7 +46,7 @@ class Dropdown extends Component {
     ];
 
     const flexProduct = [
-      { label: "* Select Product", value: 0 },
+      { label: "* Select Category", value: 0 },
       { label: "Flex Product 1", value: "Flex Product 1" },
       { label: "Flex Product 2", value: "Flex Product 2" },
       { label: "Flex Product 3", value: "Flex Product 3" },
@@ -70,20 +72,101 @@ class Dropdown extends Component {
       </option>
     ));
 
-    
-    let options;
+    let CategoryOptions;
     if (product === "flex") {
-      options = flexOptions;
+      CategoryOptions = flexOptions;
     } else {
       if (product === "express") {
-        options = expressOptions;
+        CategoryOptions = expressOptions;
       } else {
-        options = standardOptions;
+        CategoryOptions = standardOptions;
       }
     }
 
+    //Sub Category options
+
+    const eventDetail = [
+      { label: "* Select Category", value: 0 },
+      { label: "Event Details", value: "Event Details" },
+      { label: "Websie & Registration", value: "Websie & Registration" },
+      { label: "Promotion & Communcation", value: "Promotion & Communcation" },
+      { label: "Invitee Management", value: "Invitee Management" },
+      { label: "Reporting", value: "Reporting" },
+    ];
+
+    const websiteRegistration = [
+      { label: "* Select Category", value: 0 },
+      { label: "Event Details", value: "Event Details" },
+      { label: "Websie & Registration", value: "Websie & Registration" },
+      { label: "Promotion & Communcation", value: "Promotion & Communcation" },
+      { label: "Invitee Management", value: "Invitee Management" },
+      { label: "Reporting", value: "Reporting" },
+    ];
+
+    const proomotionCommunication = [
+      { label: "* Select Category", value: 0 },
+      { label: "Event Details", value: "Event Details" },
+      { label: "Websie & Registration", value: "Websie & Registration" },
+      { label: "Promotion & Communcation", value: "Promotion & Communcation" },
+      { label: "Invitee Management", value: "Invitee Management" },
+      { label: "Reporting", value: "Reporting" },
+    ];
+
+    const inviteeManagement = [
+      { label: "* Select Category", value: 0 },
+      { label: "Event Details", value: "Event Details" },
+      { label: "Websie & Registration", value: "Websie & Registration" },
+      { label: "Promotion & Communcation", value: "Promotion & Communcation" },
+      { label: "Invitee Management", value: "Invitee Management" },
+      { label: "Reporting", value: "Reporting" },
+    ];
+
+    const reporting = [
+      { label: "* Select Category", value: 0 },
+      { label: "Event Details", value: "Event Details" },
+      { label: "Websie & Registration", value: "Websie & Registration" },
+      { label: "Promotion & Communcation", value: "Promotion & Communcation" },
+      { label: "Invitee Management", value: "Invitee Management" },
+      { label: "Reporting", value: "Reporting" },
+    ];
+
+    const eventDetailOptions = eventDetail.map(option => (
+      <option key={option.label} value={option.value}>
+        {option.label}
+      </option>
+    ));
+
+    const websiteRegistrationOptions = eventDetail.map(option => (
+      <option key={option.label} value={option.value}>
+        {option.label}
+      </option>
+    ));
+
+    const PromotionCommunicationOptions = eventDetail.map(option => (
+      <option key={option.label} value={option.value}>
+        {option.label}
+      </option>
+    ));
+    const InviteeManagementOptions = eventDetail.map(option => (
+      <option key={option.label} value={option.value}>
+        {option.label}
+      </option>
+    ));
+    const reportingOptions = eventDetail.map(option => (
+      <option key={option.label} value={option.value}>
+        {option.label}
+      </option>
+    ));
+
+    let subCategoryOptions;
+    if(category === 'eventDetails') {
+      subCategoryOptions = eventDetailOptions;
+    }
+
     return (
-      <div className="product_dropdwn">
+      <div className='container'>
+        <h1 className='mt-2 mb-2'>Auto Text : Make your life easy</h1>
+      <div className="product_dropdwn mt-5">
         <div className="input-group mb-3 mr-2">
           <div className="input-group-prepend">
             <label className="input-group-text" htmlFor="inputGroupSelect01">
@@ -95,7 +178,7 @@ class Dropdown extends Component {
             onChange={this.onChange}
             name="product"
           >
-            <option defaultValue>Choose...</option>
+            <option defaultValue>* Select Product</option>
             <option value="standard">Standard Event</option>
             <option value="express">Express Event</option>
             <option value="flex">Flex Event</option>
@@ -112,7 +195,7 @@ class Dropdown extends Component {
             onChange={this.onChange}
             name="category"
           >
-            {options}
+            {CategoryOptions}
           </select>
         </div>
         <div className="input-group mb-3 mr-2">
@@ -126,10 +209,7 @@ class Dropdown extends Component {
             onChange={this.onChange}
             name="subCat"
           >
-            <option defaultValue>Choose...</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+           {subCategoryOptions}
           </select>
         </div>
         <div>
@@ -141,6 +221,10 @@ class Dropdown extends Component {
             Submit
           </button>
         </div>
+        <div className='description mt-3'>
+
+        </div>
+      </div>
       </div>
     );
   }
