@@ -20,6 +20,7 @@ class Dropdown extends Component {
     console.log("button clicked");
     console.log(this.state.product);
     console.log(this.state.category);
+    console.log(this.state.subCat);
   }
 
   render() {
@@ -87,11 +88,10 @@ class Dropdown extends Component {
 
     const eventDetail = [
       { label: "* Select Category", value: 0 },
-      { label: "Event Details", value: "Event Details" },
-      { label: "Websie & Registration", value: "Websie & Registration" },
-      { label: "Promotion & Communcation", value: "Promotion & Communcation" },
-      { label: "Invitee Management", value: "Invitee Management" },
-      { label: "Reporting", value: "Reporting" },
+      { label: "General", value: "general" },
+      { label: "Planning", value: "planning" },
+      { label: "Agenda Items", value: "agendaItems" },
+      { label: "Pricing", value: "pricing" },
     ];
 
     const websiteRegistration = [
