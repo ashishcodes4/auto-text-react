@@ -32,8 +32,8 @@ class Dropdown extends Component {
       { label: "Event Details", value: "eventDetails" },
       { label: "Websie & Registration", value: "websiteRegistration" },
       { label: "Promotion & Communcation", value: "promotionCommunication" },
-      { label: "Invitee Management", value: "InviteeManagement" },
-      { label: "Reporting", value: "Reporting" },
+      { label: "Invitee Management", value: "inviteeManagement" },
+      { label: "Reporting", value: "reporting" },
     ];
 
     const expressProduct = [
@@ -85,9 +85,8 @@ class Dropdown extends Component {
     }
 
     //Sub Category options
-
     const eventDetail = [
-      { label: "* Select Category", value: 0 },
+      { label: "* Select Sub Category", value: 0 },
       { label: "General", value: "general" },
       { label: "Planning", value: "planning" },
       { label: "Agenda Items", value: "agendaItems" },
@@ -95,39 +94,32 @@ class Dropdown extends Component {
     ];
 
     const websiteRegistration = [
-      { label: "* Select Category", value: 0 },
-      { label: "Event Details", value: "Event Details" },
-      { label: "Websie & Registration", value: "Websie & Registration" },
-      { label: "Promotion & Communcation", value: "Promotion & Communcation" },
-      { label: "Invitee Management", value: "Invitee Management" },
-      { label: "Reporting", value: "Reporting" },
+      { label: "* Select Sub Category", value: 0 },
+      { label: "Webiste", value: "webiste" },
+      { label: "Registration", value: "registration" },
+      { label: "Onsite", value: "onsite" },
+      { label: "Survey", value: "survey" },
     ];
 
     const proomotionCommunication = [
-      { label: "* Select Category", value: 0 },
-      { label: "Event Details", value: "Event Details" },
-      { label: "Websie & Registration", value: "Websie & Registration" },
-      { label: "Promotion & Communcation", value: "Promotion & Communcation" },
-      { label: "Invitee Management", value: "Invitee Management" },
-      { label: "Reporting", value: "Reporting" },
+      { label: "* Select Sub Category", value: 0 },
+      { label: "Web", value: "web" },
+      { label: "Email", value: "email" },
+      { label: "Alerts", value: "alerts" },
     ];
 
     const inviteeManagement = [
-      { label: "* Select Category", value: 0 },
-      { label: "Event Details", value: "Event Details" },
-      { label: "Websie & Registration", value: "Websie & Registration" },
-      { label: "Promotion & Communcation", value: "Promotion & Communcation" },
-      { label: "Invitee Management", value: "Invitee Management" },
-      { label: "Reporting", value: "Reporting" },
+      { label: "* Select Sub Category", value: 0 },
+      { label: "Manage", value: "manage" },
+      { label: "Qucik Action", value: "quickAction" },
+      { label: "Import", value: "import" },
+      { label: "Assign", value: "assign" },
     ];
 
     const reporting = [
-      { label: "* Select Category", value: 0 },
-      { label: "Event Details", value: "Event Details" },
-      { label: "Websie & Registration", value: "Websie & Registration" },
-      { label: "Promotion & Communcation", value: "Promotion & Communcation" },
-      { label: "Invitee Management", value: "Invitee Management" },
-      { label: "Reporting", value: "Reporting" },
+      { label: "* Select Sub Category", value: 0 },
+      { label: "Standard Reporting", value: "standard" },
+      { label: "Custom Reporting", value: "custom" },
     ];
 
     const eventDetailOptions = eventDetail.map(option => (
@@ -136,23 +128,23 @@ class Dropdown extends Component {
       </option>
     ));
 
-    const websiteRegistrationOptions = eventDetail.map(option => (
+    const websiteRegistrationOptions = websiteRegistration.map(option => (
       <option key={option.label} value={option.value}>
         {option.label}
       </option>
     ));
 
-    const PromotionCommunicationOptions = eventDetail.map(option => (
+    const promotionCommunicationOptions = proomotionCommunication.map(option => (
       <option key={option.label} value={option.value}>
         {option.label}
       </option>
     ));
-    const InviteeManagementOptions = eventDetail.map(option => (
+    const inviteeManagementOptions = inviteeManagement.map(option => (
       <option key={option.label} value={option.value}>
         {option.label}
       </option>
     ));
-    const reportingOptions = eventDetail.map(option => (
+    const reportingOptions = reporting.map(option => (
       <option key={option.label} value={option.value}>
         {option.label}
       </option>
@@ -161,6 +153,22 @@ class Dropdown extends Component {
     let subCategoryOptions;
     if(category === 'eventDetails') {
       subCategoryOptions = eventDetailOptions;
+    } else {
+      if(category === 'websiteRegistartion') {
+        subCategoryOptions = websiteRegistrationOptions
+      } else {
+        if(category === 'promotionCommunication') {
+          subCategoryOptions = promotionCommunicationOptions
+        } else {
+          if(category === 'inviteeManagement') {
+            subCategoryOptions = inviteeManagementOptions
+          } else {
+            if(category === 'reporting') {
+              subCategoryOptions = reportingOptions
+            }
+          }
+        }
+      }
     }
 
     return (
