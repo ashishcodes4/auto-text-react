@@ -22,7 +22,7 @@ class Dropdown extends Component {
   }
 
   render() {
-    const { product, category, subCat } = this.state;
+    const { product, category } = this.state;
 
     //Category Dropdown options
     const standard = [
