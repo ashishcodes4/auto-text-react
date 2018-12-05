@@ -6,13 +6,10 @@ class Product extends Component {
     this.state = {
       product: ''
     };
-
     this.onChange = this.onChange.bind(this);
   }
-
   onChange(e) {
     this.setState({[e.target.name]: e.target.value});
-    console.log(this.state.product);
   }
 
   render() {
