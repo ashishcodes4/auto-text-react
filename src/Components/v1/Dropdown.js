@@ -8,6 +8,7 @@ class Dropdown extends Component {
       category: "",
       subCat: "",
     };
+    
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
